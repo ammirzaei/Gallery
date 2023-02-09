@@ -1,4 +1,9 @@
 <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="./css/font-awesome.min.css" />
-<link rel="stylesheet" href="./css/main.css" />
 <link rel="stylesheet" href="./css/styles.css" />
+<% if(path === '/home'){ %>  
+    <link rel="stylesheet" href="./css/main.css" />
+<% } else if(path === '/user') {%>
+    <link rel="stylesheet" href="./css/form.css" />
+    <script src="https://www.google.com/recaptcha/api.js?hl=fa" async defer></script>
+<% } %>
