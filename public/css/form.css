@@ -1,9 +1,10 @@
 .form-container{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem 0;
 }
 
 .form-row{
@@ -25,7 +26,6 @@
 
 .form-group{
     padding: 10px;
-    margin: .5rem 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -71,7 +71,7 @@
 }
 
 .form-group .link::before{
-    content: ' * ';
+    content: ' - ';
 }
 .form-group .link{
     text-decoration: underline;
