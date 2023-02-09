@@ -4,8 +4,8 @@ const expressLayout = require('express-ejs-layouts');
 
 const app = new express();
 
-const { setRoutes } = require('./utils/routes');
-const { setStatics } = require('./utils/statics');
+const { setRoutes } = require('./middlewares/routes');
+const { setStatics } = require('./middlewares/statics');
 
 // config process.env
 dotenv.config({ path: './config/config.env' })
