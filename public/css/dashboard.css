@@ -1,0 +1,137 @@
+.header {
+  background-color: #353535;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.logout {
+  background-color: #ee4266;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+main {
+  margin: 2px 0;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+.aside {
+  height: 100vh;
+  background-color: #353535;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.aside-title {
+  text-align: center;
+  color: #ffe66d;
+  padding-top: 1rem;
+  border-bottom: 2px dotted #ccc;
+  padding-bottom: 10px;
+  margin: 0 10px;
+}
+.nav {
+  padding: 1rem 5px;
+}
+
+.nav a {
+  display: block;
+  color: #fff;
+  margin: 1rem 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all ease-in 0.2s;
+}
+.nav a::before {
+  content: " - ";
+}
+
+.nav a:hover {
+  color: #353535;
+  background-color: #fff;
+}
+
+.nav a.active {
+  color: #353535;
+  background-color: #fff;
+  pointer-events: none;
+}
+
+.table {
+  padding: 1rem;
+  width: 100%;
+}
+
+.table th:not(:nth-child(1)),
+.table td:not(:nth-child(1)) {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  padding: 5px;
+  text-align: center;
+  border-bottom: 2px solid #ccc;
+}
+
+.table th {
+  color: rgb(139, 139, 139);
+}
+
+.table td img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.fa-heart {
+  color: #ee4266;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.badge-success {
+  background-color: #2a9d8f;
+}
+.badge-danger {
+  background-color: #ee4266;
+}
+
+.btn{
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.btn-primary{
+    background-color: royalblue;
+}
+
+.btn-danger{
+    background-color: #d90429;
+}
