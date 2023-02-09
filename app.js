@@ -1,5 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const expressLayout = require('express-ejs-layouts');
 
 const app = new express();
 
@@ -11,6 +12,14 @@ dotenv.config({ path: './config/config.env' })
 
 // use static
 setStatics(app);
+
+// use template engine 'ejs'
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+// use layout
+app.use(expressLayout);
+app.set('layout', './layouts/mainLayout');
+app.set('layout extractScripts', true);
 
 // use routes
 setRoutes(app);

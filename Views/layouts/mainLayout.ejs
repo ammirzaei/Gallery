@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>گالری تصاویر</title>
+    <%- include('./../includes/links.ejs')
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <div class="navber-section">
+          <li>
+            <a href="/">خانه <i class="fa fa-home"></i></a>
+          </li>
+          <li>
+            <a href="#">جستجو <i class="fa fa-search"></i></a>
+          </li>
+          <li>
+            <a href="/contact-us"
+              >ارتباط با ما <i class="fa fa-envelope"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#/about-me">درباره ما <i class="fa fa-"></i></a>
+          </li>
+        </div>
+        <div class="navber-section">
+          <li>
+            <a href="/login.html">ورود به حساب <i class="fa fa-user-circle"></i></a>
+          </li>
+        </div>
+      </nav>
+      <img src="./img/header.jpg" alt="گالری تصاویر" class="header-img" />
+    </header>
+    <main>
+        <%- body %>
+    <%#
+      <section class="best-pictures">
+        <h2 class="section-title" >
+          بهترین تصاویر
+        </h2>
+        <div class="pictures">
+          <div class="picture">
+            <div class="picture-info">
+              <h3>نام عکس</h3>
+              <span class="heart">
+                2
+                <i class="fa fa-heart"></i>
+              </span>
+            </div>
+            <img src="./img/pictures/1.jpg" alt="" />
+          </div>
+          <div class="picture">
+            <div class="picture-info">
+              <h3>نام عکس</h3>
+              <span class="heart">
+                2
+                <i class="fa fa-heart"></i>
+              </span>
+            </div>
+            <img src="./img/pictures/2.jpg" alt="" />
+          </div>
+          <div class="picture">
+            <div class="picture-info">
+              <h3>نام عکس</h3>
+              <span class="heart">
+                2
+                <i class="fa fa-heart"></i>
+              </span>
+            </div>
+            <img src="./img/pictures/3.jpg" alt="" />
+          </div>
+          <div class="picture">
+            <div class="picture-info">
+              <h3>نام عکس</h3>
+              <span class="heart">
+                2
+                <i class="fa fa-heart"></i>
+              </span>
+            </div>
+            <img src="./img/pictures/4.jpg" alt="" />
+          </div>
+        </div>
+        <div class="pictures-more">
+            <a href="/pictures.html">تصاویر بیشتر...</a>
+        </div>
+      </section>
+      <section class="latest-pictures">
+        <h2 class="section-title">
+          جدیدترین تصاویر
+        </h2>
+        <div class="pictures">
+          <div class="picture">
+            <div class="picture-info">
+              <h3>نام عکس</h3>
+              <span class="heart">
+                2
+                <i class="fa fa-heart"></i>
+              </span>
+            </div>
+            <img src="./img/pictures/1.jpg" alt="" />
+          </div>
+          <div class="picture">
+            <div class="picture-info">
+              <h3>نام عکس</h3>
+              <span class="heart">
+                2
+                <i class="fa fa-heart"></i>
+              </span>
+            </div>
+            <img src="./img/pictures/2.jpg" alt="" />
+          </div>
+          <div class="picture">
+            <div class="picture-info">
+              <h3>نام عکس</h3>
+              <span class="heart">
+                2
+                <i class="fa fa-heart"></i>
+              </span>
+            </div>
+            <img src="./img/pictures/3.jpg" alt="" />
+          </div>
+          <div class="picture">
+            <div class="picture-info">
+              <h3>نام عکس</h3>
+              <span class="heart">
+                2
+                <i class="fa fa-heart"></i>
+              </span>
+            </div>
+            <img src="./img/pictures/4.jpg" alt="" />
+          </div>
+        </div>
+        <div class="pictures-more">
+            <a href="/pictures.html">تصاویر بیشتر...</a>
+        </div>
+      </section>
+      <section class="best-photografers">
+        <h2 class="section-title">
+            بهترین عکاسان
+          </h2>
+          <div class="photografers">
+            <div class="photografer">
+                <img src="./img/users/1.jpg" alt="" >
+                <h3>امیرمحمد</h3>
+            </div>
+            <div class="photografer">
+                <img src="./img/users/2.jpg" alt="">
+                <h3>علی</h3>
+            </div>
+            <div class="photografer">
+                <img src="./img/users/3.jpg" alt="">
+                <h3>جواد</h3>
+            </div>
+          </div>
+      </section>
+      %>
+    </main>
+    <footer class="footer">
+      <p>
+        این پروژه ی گالری تصاویر بصورت کامل توسط امیرمحمد میرزائی برای تست و
+        تمرین خودش طراحی شده است.
+      </p>
+    </footer>
+
+    <%- script %>
+  </body>
+</html>
