@@ -1,0 +1,24 @@
+<% if(success.length) {%>
+    <div class="message message-success">
+        <p>
+           <%= success %>
+        </p>
+        <i class="fa fa-2x fa-check-circle"></i>
+    </div>
+<% } else if(error.length) {%>
+    <div class="message message-error">
+        <p>
+           <%= error %>
+        </p>
+        <i class="fa fa-2x fa-close"></i>
+    </div>
+<% } else if(warning.length) {%>
+    <div class="message message-warning">
+        <p>
+           <%= warning %>
+        </p>
+        <i class="fa fa-2x fa-warning"></i>
+    </div>
+<% } %>
+   
+  

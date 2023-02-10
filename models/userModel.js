@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+
+const { registerSchema } = require('./schema/userSchema');
 
 const userSchema = new mongoose.Schema({
     nickName: {
@@ -29,6 +32,23 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
+});
+
+// register schema for validation user inputs
+userSchema.statics.registerValidation = function (body) {
+    return registerSchema.validate(body, { abortEarly: false });
+}
+
+// encypting password when create and edit user
+userSchema.pre('save', async function (next) {
+    const user = this;
+    if (!user.isModified('password')) return next();
+
+    // encrypt
+    const hashPassword = await bcrypt.hash(user.password, 10);
+    user.password = hashPassword;
+
+    next();
 });
 
 module.exports = mongoose.model('user', userSchema);

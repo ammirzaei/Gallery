@@ -3,21 +3,22 @@
         <img src="./img/user.png" alt="ثبت نام">
         <h1>ثبت نام</h1>
     </div>
+    <%- include('./../includes/message.ejs') %>
     <form class="form" action="/register" method="post">
         <div class="form-group">
             <label for="email">ایمیل</label>
             <input type="email" name="email" required  id="email" placeholder="ایمیل خود را وارد نمایید">
-            <!-- <span class="message-error">لطفا ایمیل را وارد کن</span> -->
+            <span class="msg-error"><%= errors.find(err=> err.name === 'email')?.message  %></span>
         </div>
         <div class="form-group">
             <label for="password">رمز عبور</label>
             <input type="password" required name="password" id="password" placeholder="رمز عبور خود را وارد نمایید">
-            <!-- <span class="message-error">لطفا رمز عبور را وارد کن</span> -->
+            <span class="msg-error"><%= errors.find(err=> err.name === 'password')?.message %></span>
         </div>
         <div class="form-group">
             <label for="repassword">تکرار رمز عبور</label>
             <input type="password" required name="repassword" id="repassword" placeholder="تکرار رمز عبور خود را وارد نمایید">
-            <!-- <span class="message-error">لطفا رمز عبور را وارد کن</span> -->
+            <span class="msg-error"><%= errors.find(err=> err.name === 'repassword')?.message %></span>
         </div>
         <div class="form-group center">
             <div class="g-recaptcha" data-sitekey="6Lf3pmkkAAAAAMc6oCeJopYXRaGskYqHwZh47od2"></div>
