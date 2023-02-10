@@ -40,6 +40,7 @@
 }
 .form-group label::after {
   content: "*";
+  color: #ee4266;
 }
 .form-group input[type="text"],
 .form-group input[type="email"],
