@@ -8,7 +8,6 @@ const User = require('./../models/userModel');
 module.exports.getRegister = (req, res) => {
     res.render('user/register', {
         pageTitle: 'ثبت نام',
-        path: '/user',
         layout: './layouts/userLayout',
         success: req.flash('success'),
         error: req.flash('error'),
@@ -70,7 +69,6 @@ module.exports.handleRegister = async (req, res) => {
 
         res.render('user/register', {
             pageTitle: 'ثبت نام',
-            path: '/user',
             layout: './layouts/userLayout',
             success: req.flash('success'),
             error: req.flash('error'),
@@ -105,7 +103,6 @@ module.exports.getLogin = (req, res) => {
 
     res.render('user/login', {
         pageTitle: 'ورود به حساب',
-        path: '/user',
         layout: './layouts/userLayout',
         success: req.flash('success'),
         error: req.flash('error'),
