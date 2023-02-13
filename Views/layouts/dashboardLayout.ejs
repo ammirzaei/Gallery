@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ورود به حساب</title>
+    <title>داشبورد | <%= pageTitle %></title>
     <%- include('./../includes/links.ejs', { path : '/dashboard' }) %>
   </head>
   <body>
      <header class="header">
         <div class="user-info">
-            <img src="<%= user.avatar === 'user.png' ? './img/user.png' : `./img/users/${user.avatar}` %>" alt="<%= user.nickName %>" >
+            <img src="<%= user.avatar === 'user.png' ? './../img/user.png' : `./../img/users/${user.avatar}` %>" alt="<%= user.nickName %>" >
             <span><%= user.nickName %></span>
         </div>
         <div class="page-title">
-            <h1>داشبورد</h1>
+            <h1><%= pageTitle %></h1>
         </div>
         <a class="logout" href="/logout">
             خروج از حساب <i class="fa fa-sign-out"></i>
@@ -25,7 +25,10 @@
             <h2 class="aside-title">لینک های مفید</h2>
             <ul class="nav">
                 <li>
-                    <a href="#" class="active">بارگذاری تصاویر</a>
+                    <a href="/dashboard" class="<%= path === '/dashboard' ? 'active' : '' %>">داشبورد</a>
+                </li>
+                <li>
+                    <a href="/dashboard/upload" class="<%= path === '/upload' ? 'active' : '' %>">بارگذاری تصاویر</a>
                 </li>
                 <li>
                     <a href="#">تغییر اطلاعات</a>
@@ -35,74 +38,7 @@
                 </li>
             </ul>
         </aside>
-        <section>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>تصویر</th>
-                        <th>عنوان تصویر</th>
-                        <th>لایک ها</th>
-                        <th>تاریخ افزودن</th>
-                        <th>وضعیت</th>
-                        <th>عملیات</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <img src="assets/img/pictures/2.jpg" alt="">
-                        </td>
-                        <td>برنامه نویسی</td>
-                        <td><i class="fa fa-heart"></i> 5</td>
-                        <td>1401/11/21 20:17:49</td>
-                        <td>
-                            <span class="badge badge-success">نمایش بده</span>
-                            <span class="badge badge-danger">تایید نشده</span>
-                        </td>
-                        <th>
-                            <a href="#" class="btn btn-primary">ویرایش</a>
-                            <a href="#" class="btn btn-danger">حذف</a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>
-                            <img src="assets/img/pictures/2.jpg" alt="">
-                        </td>
-                        <td>برنامه نویسی</td>
-                        <td><i class="fa fa-heart"></i> 5</td>
-                        <td>1401/11/21 20:17:49</td>
-                        <td>
-                            <span class="badge badge-success">نمایش بده</span>
-                            <span class="badge badge-danger">تایید نشده</span>
-                        </td>
-                        <th>
-                            <a href="#" class="btn btn-primary">ویرایش</a>
-                            <a href="#" class="btn btn-danger">حذف</a>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>
-                            <img src="assets/img/pictures/2.jpg" alt="">
-                        </td>
-                        <td>برنامه نویسی</td>
-                        <td><i class="fa fa-heart"></i> 5</td>
-                        <td>1401/11/21 20:17:49</td>
-                        <td>
-                            <span class="badge badge-success">نمایش بده</span>
-                            <span class="badge badge-danger">تایید نشده</span>
-                        </td>
-                        <th>
-                            <a href="#" class="btn btn-primary">ویرایش</a>
-                            <a href="#" class="btn btn-danger">حذف</a>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+       <%- body %>
      </main>
   </body>
 </html>
