@@ -10,8 +10,8 @@
   <body>
      <header class="header">
         <div class="user-info">
-            <img src="./img/user.png" alt="<%= nickName %>" >
-            <span><%= nickName %></span>
+            <img src="<%= user.avatar === 'user.png' ? './img/user.png' : `./img/users/${user.avatar}` %>" alt="<%= user.nickName %>" >
+            <span><%= user.nickName %></span>
         </div>
         <div class="page-title">
             <h1>داشبورد</h1>
