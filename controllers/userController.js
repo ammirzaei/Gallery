@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
 const shortid = require('shortid');
+const passport = require('passport');
+const urlLocal = require('url-local');
 
 const User = require('./../models/userModel');
 
@@ -52,7 +54,7 @@ module.exports.handleRegister = async (req, res) => {
 
         // successed register
         req.flash('success', 'ثبت نام شما با موفقیت انجام شد');
-        res.redirect('/register');
+        res.redirect('/login');
     } catch (err) {
         const errors = [];
 
@@ -94,4 +96,66 @@ async function handleRecaptcha(resRecaptcha, remoteip) {
     const responseJson = await response.json();
 
     return responseJson.success; // return response(boolean)
+}
+
+module.exports.getLogin = (req, res) => {
+    // if is authenticated user
+    if (req.isAuthenticated())
+        return res.redirect('/');
+
+    res.render('user/login', {
+        pageTitle: 'ورود به حساب',
+        path: '/user',
+        layout: './layouts/userLayout',
+        success: req.flash('success'),
+        error: req.flash('error'),
+        warning: req.flash('warning'),
+        errors: [],
+        redirect: req.query.redirect ? req.query.redirect : '/'
+    });
+}
+
+module.exports.handleLogin = async (req, res, next) => {
+    try {
+        // access to response recaptcha in view
+        const resRecaptcha = req.body['g-recaptcha-response'];
+
+        // if confirm recaptcha
+        if (!resRecaptcha) {
+            req.flash('warning', 'لطفا reCAPTCHA را تایید کنید');
+            return res.redirect('/login');
+        }
+
+        // if valid confirm recaptcha
+        if (!handleRecaptcha(resRecaptcha, req.ip)) {
+            req.flash('error', 'در اعتبارسنجی reCAPTCHA مشکلی رخ داد');
+            return res.redirect('/login');
+        }
+
+        // authentication with passport local
+        passport.authenticate('local', {
+            failureRedirect: '/login',
+            failureFlash: true
+        })(req, res, next);
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+module.exports.handleRememberMe = (req, res) => {
+    const { remmemberMe, redirect } = req.body;
+
+    // if confirm remmemberMe
+    if (remmemberMe) { // set max age
+        req.session.cookie.originalMaxAge = (3600 * 1000) * 24 * 7; // 7 day
+    } else {
+        req.session.cookie.expire = null;
+    }
+
+    // if url is local
+    if (urlLocal(redirect))
+        res.redirect(redirect);
+    else
+        res.redirect('/');
 }

@@ -3,6 +3,8 @@ const dotenv = require('dotenv');
 const expressLayout = require('express-ejs-layouts');
 const expressSession = require('express-session');
 const flash = require('connect-flash');
+const passport = require('passport');
+const mongoStore = require('connect-mongo');
 
 const app = new express();
 
@@ -12,6 +14,9 @@ const { setStatics } = require('./middlewares/statics');
 
 // config process.env
 dotenv.config({ path: './config/config.env' })
+
+// config passport
+require('./config/passport');
 
 // use body parser
 app.use(express.urlencoded({ extended: false }));
@@ -29,10 +34,17 @@ app.use(expressSession({
     resave: false,
     unset: 'destroy',
     saveUninitialized: false,
+    store : new mongoStore({
+        mongoUrl : process.env.MONGO_URI
+    }),
     cookie: {
-        httpOnly: true,
+       httpOnly : true
     }
 }));
+
+// use passport for authentication
+app.use(passport.initialize());
+app.use(passport.session());
 
 // use flash to the req.flash
 app.use(flash());

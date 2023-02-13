@@ -1,0 +1,34 @@
+<div class="form-row">
+    <div class="form-header">
+        <img src="./img/user.png" alt="ورود به حساب">
+        <h1>ورود به حساب</h1>
+    </div>
+    <%- include('./../includes/message.ejs') %>
+    <form class="form" action="/login" method="post">
+        <input type="hidden" name="redirect" value="<%= redirect %>">
+        <div class="form-group">
+            <label for="email">ایمیل</label>
+            <input type="email" name="email" required  id="email" placeholder="ایمیل خود را وارد نمایید">
+            <span class="msg-error"><%= errors.find(err=> err.name === 'email')?.message  %></span>
+        </div>
+        <div class="form-group">
+            <label for="password">رمز عبور</label>
+            <input type="password" required name="password" id="password" placeholder="رمز عبور خود را وارد نمایید">
+            <span class="msg-error"><%= errors.find(err=> err.name === 'password')?.message %></span>
+        </div>
+        <div class="form-group different">
+            <label for="remmemberMe">مرا به خاطر بسپار</label>
+            <input type="checkbox" name="remmemberMe" id="remmemberMe">
+        </div>
+        <div class="form-group center">
+            <div class="g-recaptcha" data-sitekey="6Lf3pmkkAAAAAMc6oCeJopYXRaGskYqHwZh47od2"></div>
+        </div>
+        <div class="form-group">
+            <a href="/register" class="link">هنوز ثبت نام نکرده ام </a>
+            <a href="/forget-password" class="link">رمز عبورمو فراموش کرده ام </a>
+        </div>
+        <div class="form-group center">
+            <button type="submit">ورود <i class="fa fa-sign-in"></i></button>
+        </div>
+    </form>
+</div>
