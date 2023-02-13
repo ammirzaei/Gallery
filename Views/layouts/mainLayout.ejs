@@ -27,9 +27,15 @@
           </li>
         </div>
         <div class="navber-section">
-          <li>
-            <a href="/login.html">ورود به حساب <i class="fa fa-user-circle"></i></a>
-          </li>
+          <% if(authenticated) { %>
+            <li>
+              <a href="/dashboard">ورود به داشبورد <i class="fa fa-dashboard"></i></a>
+            </li>
+          <% } else { %>
+            <li>
+              <a href="/login">ورود به حساب <i class="fa fa-user-circle"></i></a>
+            </li>
+          <% } %>
         </div>
       </nav>
       <img src="./img/header.jpg" alt="گالری تصاویر" class="header-img" />
