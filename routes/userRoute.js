@@ -15,4 +15,7 @@ router.get('/login', userController.getLogin);
 // Handler Login -- POST
 router.post('/login', userController.handleLogin, userController.handleRememberMe);
 
+// Handler Logout -- GET
+router.get('/logout', userController.handleLogout);
+
 module.exports = router;

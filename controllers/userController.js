@@ -159,3 +159,15 @@ module.exports.handleRememberMe = (req, res) => {
     else
         res.redirect('/');
 }
+
+module.exports.handleLogout = (req, res) => {
+    if (req.isAuthenticated()) {
+        req.session = null;
+        req.logout((err) => {
+            if (err) console.log(err);
+
+            res.redirect('/');
+        });
+    } else
+        res.redirect('/');
+}
