@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
         minlength: 6,
         maxlength: 150
     },
+    avatar: {
+        type: String,
+        default: 'user.png'
+    },
     role: {
         type: String,
         default: 'user',
