@@ -1,6 +1,6 @@
 # Custom
-public/uploads/img/*
-public/uploads/blogs/*
+public/img/avatars/*
+public/img/pictures/*
 
 # Logs
 logs
