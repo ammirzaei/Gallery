@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="./../css/form.css" />
+
+<div class="form-row" style="width: 100%; margin: 10px;">
+    <div class="form-header">
+        <h3>ثبت درخواست برای دسترسی آپلود تصاویر</h3>
+    </div>
+    <form class="form" action="/dashboard/request" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="nickName">نام نمایشی</label>
+            <input type="text" name="nickName" required  id="nickName" placeholder="نام نمایشی خود را وارد نمایید">
+            <span class="msg-error"><%= errors.find(err=> err.name === 'nickName')?.message  %></span>
+        </div>
+        <div class="form-group">
+            <label for="avatar">آواتار</label>
+            <input type="file" name="avatar" required id="avatar">
+            <img src="#" id="previewAvatar" style="display: none;" width="200px" height="200px">
+            <span class="msg-error"><%= errors.find(err=> err.name === 'avatar.name' || err.name === 'avatar.size' || err.name === 'avatar.mimetype')?.message  %></span>
+        </div>
+        <div class="form-group center">
+            <button type="submit">ثبت درخواست</button>
+        </div>
+    </form>
+</div>
+
+<script src="./../js/request.js"></script>

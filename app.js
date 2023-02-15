@@ -5,6 +5,7 @@ const expressSession = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const mongoStore = require('connect-mongo');
+const fileUpload = require('express-fileupload');
 
 const app = new express();
 
@@ -34,11 +35,11 @@ app.use(expressSession({
     resave: false,
     unset: 'destroy',
     saveUninitialized: false,
-    store : new mongoStore({
-        mongoUrl : process.env.MONGO_URI
+    store: new mongoStore({
+        mongoUrl: process.env.MONGO_URI
     }),
     cookie: {
-       httpOnly : true
+        httpOnly: true
     }
 }));
 
@@ -49,6 +50,9 @@ app.use(passport.session());
 // use flash to the req.flash
 app.use(flash());
 
+// use file upload to the req.files
+app.use(fileUpload());
+
 // use template engine 'ejs'
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -56,6 +60,7 @@ app.set('views', 'views');
 app.use(expressLayout);
 app.set('layout', './layouts/mainLayout');
 app.set('layout extractScripts', true);
+app.set('layout extractStyles', true);
 
 // use routes
 setRoutes(app);

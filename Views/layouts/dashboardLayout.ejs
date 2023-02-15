@@ -10,7 +10,7 @@
   <body>
      <header class="header">
         <div class="user-info">
-            <img src="<%= user.avatar === 'user.png' ? './../img/user.png' : `./../img/users/${user.avatar}` %>" alt="<%= user.nickName %>" >
+            <img src="<%= user.avatar === 'user.png' ? './../img/user.png' : `./../img/avatars/${user.avatar}` %>" alt="<%= user.nickName %>" >
             <span><%= user.nickName %></span>
         </div>
         <div class="page-title">
@@ -28,7 +28,7 @@
                     <a href="/dashboard" class="<%= path === '/dashboard' ? 'active' : '' %>">داشبورد</a>
                 </li>
                 <li>
-                    <a href="/dashboard/upload" class="<%= path === '/upload' ? 'active' : '' %>">بارگذاری تصاویر</a>
+                    <a href="/dashboard/upload" class="<%= path === '/upload' ? 'active' : '' %>">آپلود تصاویر</a>
                 </li>
                 <li>
                     <a href="#">تغییر اطلاعات</a>
@@ -38,7 +38,11 @@
                 </li>
             </ul>
         </aside>
-       <%- body %>
+      <section>
+        <%- body %>
+      </section>
      </main>
+
+     <%- script %>
   </body>
 </html>

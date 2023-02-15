@@ -1,0 +1,22 @@
+<% if(isRequest){ %>
+    <div class="message message-success">
+        <p>
+           درخواست شما تایید شده و میتوانید تصاویر خود را آپلود کنید.
+        </p>
+        <i class="fa fa-2x fa-check-circle"></i>
+    </div>
+<% } else if(isRequest === false) { %>
+    <div class="message message-warning">
+        <p>
+           درخواست شما ثبت شده، منتظر تایید آن باشید...
+        </p>
+        <i class="fa fa-2x fa-check-circle"></i>
+    </div>
+<% } else if(typeof isRequest === 'undefined') { %>
+    <div class="role">
+        <p>
+            در صورتی که میخواهید دسترسی عکاس را داشته باشید و بتوانید تصاویر خود را آپلود کنید، ابتدا باید اطلاعات پیشفرض خود را تغییر بدید تا اکانت شما توسط ادمین ها دسترسی این کار را دریافت کند.
+        </p>
+        <a href="/dashboard/request" class="btn btn-primary">ثبت درخواست</a>
+    </div>
+<% } %>

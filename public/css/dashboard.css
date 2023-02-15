@@ -135,3 +135,39 @@ main {
 .btn-danger{
     background-color: #d90429;
 }
+
+.role{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: #cdb4db;
+}
+
+
+.message {
+  color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 10px;
+}
+
+.message p{
+    margin: 0 5px;
+}
+.message-success {
+  background-color: #5fad56;
+}
+.message-error{
+    background-color: #ee4266;
+}
+
+.message-warning{
+    background-color: #ffd60a;
+    color: #202020;
+}

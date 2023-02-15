@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const { registerSchema } = require('./schema/userSchema');
+const { registerSchema, requestSchema } = require('./schema/userSchema');
 
 const userSchema = new mongoose.Schema({
     nickName: {
@@ -41,6 +41,11 @@ const userSchema = new mongoose.Schema({
 // register schema for validation user inputs
 userSchema.statics.registerValidation = function (body) {
     return registerSchema.validate(body, { abortEarly: false });
+}
+
+// request Schema for validation user inputs
+userSchema.statics.requestValidation = function (body) {
+    return requestSchema.validate(body, { abortEarly: false });
 }
 
 // encypting password when create and edit user
