@@ -35,12 +35,12 @@ app.use(expressSession({
     resave: false,
     unset: 'destroy',
     saveUninitialized: false,
-    store: new mongoStore({
-        mongoUrl: process.env.MONGO_URI
-    }),
     cookie: {
         httpOnly: true
-    }
+    },
+    store: mongoStore.create({
+        mongoUrl: process.env.MONGO_URI
+    })
 }));
 
 // use passport for authentication
